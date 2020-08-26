@@ -252,6 +252,12 @@ on boot
     setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
+    # Smartcharge Permissions
+    chown system system /sys/class/power_supply/battery/charging_enabled 
+    chmod 0666 /sys/class/power_supply/battery/charging_enabled
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0666 /sys/class/power_supply/battery/input_suspend
+
     # Set the default voltage to 5v
     setprop persist.vendor.cp.taper_term_mv 5000
 
